@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ElevatorDirectionTest {
+public class ElevatorDirectionTests {
     @Test
     void getValueTest() {
         assertEquals(-1, ElevatorDirection.DOWN.getValue());
