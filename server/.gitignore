@@ -1,0 +1,6 @@
+# Local config
+.idea
+.gradle
+
+# Builds
+build
