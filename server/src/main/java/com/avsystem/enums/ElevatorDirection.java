@@ -12,6 +12,14 @@ public enum ElevatorDirection {
         return this.value;
     }
 
+    public ElevatorDirection reverse() {
+        return switch (this) {
+            case UP -> DOWN;
+            case DOWN -> UP;
+            case IDLE -> IDLE;
+        };
+    }
+
     public static ElevatorDirection get(Integer startFloor, Integer finalFloor) {
         if (startFloor < finalFloor)
             return UP;
