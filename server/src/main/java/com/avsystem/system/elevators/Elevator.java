@@ -53,4 +53,9 @@ public abstract class Elevator {
     public Boolean isOpen() {
         return this.currentFloor.equals(this.destinationFloor);
     }
+
+    //// GETTERS ///
+    public Integer getCurrentFloor() {
+        return currentFloor;
+    }
 }
