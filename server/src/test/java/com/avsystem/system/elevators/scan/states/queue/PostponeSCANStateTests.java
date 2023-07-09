@@ -43,4 +43,29 @@ public class PostponeSCANStateTests {
         assertEquals(1,elevator.getPostponedRequests().size());
         assertEquals(-1,elevator.getCurrentFloor());
     }
+
+    @Test
+    void multiPostponeUpwardTest() {
+        /// GIVEN ///
+        SCANElevator elevator = new SCANElevator(0);
+        State state = new MoveSCANState(elevator, ElevatorDirection.UP);
+        int floors = 10;
+
+        /// WHEN ///
+        elevator.pickup(floors);
+
+        /// go to 1st floor and postpone
+        state = state.step();
+
+        for (int i = 0; i < floors - 1; i++ ) {
+            elevator.pickup(i, ElevatorDirection.UP);
+            state = state.step();
+        }
+
+
+        /// THEN ///
+        assertEquals(9, elevator.getPostponedRequests().size());
+        assertEquals(10, elevator.getCurrentFloor());
+
+    }
 }
