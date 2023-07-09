@@ -13,14 +13,30 @@ public class MoveSCANState extends QueueSCANState {
 
     @Override
     public State enter() {
+        Integer prevFloor = this.elevator.getCurrentFloor();
+        Integer destination = this.forwardRequests.first().floor();
+
         /// TODO: do it better
         this.elevator.move(direction);
         ElevatorStatus status = this.elevator.status();
 
+
+
         System.out.println(
-            direction + ": Moved el:" + status.elevatorId() + " to " + status.currentFloor() + ". floor"
+            direction +
+            ": Moved el:" + status.elevatorId() +
+            " from: " + prevFloor +
+            ". to: " + status.currentFloor() +
+            ". dest: " + destination + ". floor"
         );
-        return this;
+        return this.elevator
+            .getCurrentFloor()
+            .equals(
+                this.forwardRequests.first().floor()
+            )
+                ? this.step()
+                : this;
+
     }
 
     @Override

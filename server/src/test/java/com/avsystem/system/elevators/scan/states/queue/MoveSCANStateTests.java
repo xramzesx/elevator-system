@@ -37,15 +37,14 @@ public class MoveSCANStateTests {
         /// WHEN ///
         elevator.pickup(4);
 
-        /// go to 4th floor
-        state = state.step();
+        /// go to 3rd floor
         state = state.step();
         state = state.step();
         state = state.step();
 
         moveState = state;
 
-        /// open door at 4th floor
+        /// go to 4th floor and open door
         state = state.step();
 
         openState = state;
@@ -68,7 +67,6 @@ public class MoveSCANStateTests {
         State state = new MoveSCANState(elevator, ElevatorDirection.UP);
         State ignoreDownMoveState, openState, ignoreLowerFloorMoveState;
         Integer firstCheck, secondCheck, thirdCheck, fourthCheck;
-
 
         /// WHEN ///
         /// pickup inside elevator to 10th floor
@@ -93,7 +91,6 @@ public class MoveSCANStateTests {
 
         /// go to 5th floor
         state = state.step();
-        state = state.step();
 
         openState = state;
         thirdCheck = elevator.getCurrentFloor();
@@ -114,10 +111,9 @@ public class MoveSCANStateTests {
         state = state.step();
         state = state.step();
 
-
         /// THEN ///
 
-        assertTrue(state instanceof MoveSCANState);
+        assertTrue(state instanceof OpenSCANState);
         assertEquals(10, elevator.getCurrentFloor());
 
         assertEquals(3, firstCheck);
