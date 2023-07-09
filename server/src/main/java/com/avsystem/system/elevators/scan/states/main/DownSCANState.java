@@ -45,4 +45,25 @@ public class DownSCANState extends SCANState {
         State state = new IdleSCANState(elevator);
         return state.enter();
     }
+
+    @Override
+    public boolean isOpen() {
+        return this.substate.isOpen();
+    }
+
+    @Override
+    public Integer destination() {
+        return this.substate.destination();
+    }
+
+    @Override
+    public Integer current() {
+        return this.substate.current();
+    }
+
+    @Override
+    public ElevatorDirection direction() {
+        return ElevatorDirection.DOWN;
+    }
+
 }

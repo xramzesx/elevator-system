@@ -49,4 +49,19 @@ public class PostponeSCANState extends QueueSCANState {
         /// POSTPONE STATE ///
         return this.enter();
     }
+
+    @Override
+    public boolean isOpen() {
+        return false;
+    }
+
+    @Override
+    public Integer destination() {
+        return this.elevator.getCurrentFloor();
+    }
+
+    @Override
+    public Integer current() {
+        return this.elevator.getCurrentFloor();
+    }
 }

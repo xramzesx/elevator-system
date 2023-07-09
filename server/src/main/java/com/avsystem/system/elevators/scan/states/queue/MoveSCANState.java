@@ -20,13 +20,11 @@ public class MoveSCANState extends QueueSCANState {
         this.elevator.move(direction);
         ElevatorStatus status = this.elevator.status();
 
-
-
         System.out.println(
             direction +
             ": Moved el:" + status.elevatorId() +
             " from: " + prevFloor +
-            ". to: " + status.currentFloor() +
+            ". to: " + status.current() +
             ". dest: " + destination + ". floor"
         );
         return this.elevator
@@ -66,5 +64,20 @@ public class MoveSCANState extends QueueSCANState {
         /// POSTPONE STATE ///
         State state = new PostponeSCANState(elevator, direction);
         return state.enter();
+    }
+
+    @Override
+    public boolean isOpen() {
+        return false;
+    }
+
+    @Override
+    public Integer destination() {
+        return this.forwardRequests.first().floor();
+    }
+
+    @Override
+    public Integer current() {
+        return this.elevator.getCurrentFloor();
     }
 }

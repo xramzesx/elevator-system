@@ -44,4 +44,19 @@ public class InitSCANState extends QueueSCANState {
         State state = new MoveSCANState(elevator, direction);
         return state.enter();
     }
+
+    @Override
+    public boolean isOpen() {
+        return false;
+    }
+
+    @Override
+    public Integer destination() {
+        return this.forwardRequests.first().floor();
+    }
+
+    @Override
+    public Integer current() {
+        return this.elevator.getCurrentFloor();
+    }
 }

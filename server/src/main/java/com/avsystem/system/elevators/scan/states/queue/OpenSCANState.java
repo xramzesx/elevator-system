@@ -49,4 +49,19 @@ public class OpenSCANState extends QueueSCANState {
         State state = new PostponeSCANState(elevator, direction);
         return state.enter();
     }
+
+    @Override
+    public boolean isOpen() {
+        return true;
+    }
+
+    @Override
+    public Integer destination() {
+        return this.elevator.getCurrentFloor();
+    }
+
+    @Override
+    public Integer current() {
+        return this.elevator.getCurrentFloor();
+    }
 }

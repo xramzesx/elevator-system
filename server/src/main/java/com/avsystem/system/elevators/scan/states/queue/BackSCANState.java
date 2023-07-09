@@ -26,4 +26,18 @@ public class BackSCANState extends QueueSCANState {
         return state.enter();
     }
 
+    @Override
+    public boolean isOpen() {
+        return false;
+    }
+
+    @Override
+    public Integer destination() {
+        return this.elevator.getCurrentFloor();
+    }
+
+    @Override
+    public Integer current() {
+        return this.elevator.getCurrentFloor();
+    }
 }

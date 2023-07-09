@@ -47,4 +47,9 @@ public abstract class QueueSCANState extends SCANState {
             ? floorA - floorB
             : floorB - floorA;
     }
+
+    @Override
+    public ElevatorDirection direction() {
+        return this.direction;
+    }
 }

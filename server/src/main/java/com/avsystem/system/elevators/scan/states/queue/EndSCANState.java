@@ -24,4 +24,19 @@ public class EndSCANState extends QueueSCANState {
     public State step() {
         return this;
     }
+
+    @Override
+    public boolean isOpen() {
+        return false;
+    }
+
+    @Override
+    public Integer destination() {
+        return this.elevator.getCurrentFloor();
+    }
+
+    @Override
+    public Integer current() {
+        return this.elevator.getCurrentFloor();
+    }
 }
