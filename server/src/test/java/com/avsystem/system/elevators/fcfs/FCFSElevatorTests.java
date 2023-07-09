@@ -1,8 +1,10 @@
-package com.avsystem.system.elevators;
+package com.avsystem.system.elevators.fcfs;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
 import com.avsystem.records.ElevatorStatus;
+import com.avsystem.system.elevators.Elevator;
+import com.avsystem.system.elevators.fcfs.FCFSElevator;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -11,6 +13,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FCFSElevatorTests {
+    @Test
+    void pickupTest() {
+        Elevator elevator = new FCFSElevator(0);
+        List<ElevatorRequest> requests = new ArrayList<>();
+    }
 
     @Test
     void stepForwardTest() {

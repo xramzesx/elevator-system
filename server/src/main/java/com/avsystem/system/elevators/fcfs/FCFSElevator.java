@@ -1,7 +1,8 @@
-package com.avsystem.system.elevators;
+package com.avsystem.system.elevators.fcfs;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
+import com.avsystem.system.elevators.Elevator;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,7 +10,7 @@ import java.util.Queue;
 /**
  * This
  */
-public class FCFSElevator extends Elevator{
+public class FCFSElevator extends Elevator {
 
     private final Queue<ElevatorRequest> requests = new LinkedList<>();
     private ElevatorRequest currentRequest = null;
