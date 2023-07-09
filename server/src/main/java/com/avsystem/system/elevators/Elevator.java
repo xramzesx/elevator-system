@@ -42,7 +42,8 @@ public abstract class Elevator {
         return new ElevatorStatus(
             this.elevatorId,
             this.currentFloor,
-            this.destinationFloor
+            this.destinationFloor,
+            this.isOpen()
         );
     }
 

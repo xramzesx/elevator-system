@@ -33,7 +33,7 @@ public class FCFSElevatorTests {
         elevator.step();
 
         /// THEN ///
-        assertEquals(elevator.status(), new ElevatorStatus(0, 3, 4));
+        assertEquals(elevator.status(), new ElevatorStatus(0, 3, 4, false));
     }
 
     @Test
@@ -50,7 +50,7 @@ public class FCFSElevatorTests {
         elevator.step();
 
         /// THEN ///
-        assertEquals(elevator.status(), new ElevatorStatus(0, -3, -4));
+        assertEquals(elevator.status(), new ElevatorStatus(0, -3, -4, false));
     }
 
     @Test
@@ -73,7 +73,7 @@ public class FCFSElevatorTests {
         elevator.step();
 
         /// THEN ///
-        assertEquals(elevator.status(), new ElevatorStatus(0, 4, 4));
+        assertEquals(elevator.status(), new ElevatorStatus(0, 4, 4, true));
     }
 
     @Test

@@ -8,9 +8,9 @@ public class ElevatorStatusTests {
     @Test
     void hashCodeTest() {
         /// GIVEN ///
-        ElevatorStatus status1 = new ElevatorStatus(0, 1, 2);
-        ElevatorStatus status2 = new ElevatorStatus(0, 1, 2);
-        ElevatorStatus status3 = new ElevatorStatus(1, 1, 2);
+        ElevatorStatus status1 = new ElevatorStatus(0, 1, 2, false);
+        ElevatorStatus status2 = new ElevatorStatus(0, 1, 2, false);
+        ElevatorStatus status3 = new ElevatorStatus(1, 1, 2, false);
 
         /// THEN ///
         assertEquals(status1.hashCode(), status2.hashCode());
@@ -20,9 +20,9 @@ public class ElevatorStatusTests {
     @Test
     void equalsTest() {
         /// GIVEN ///
-        ElevatorStatus status1 = new ElevatorStatus(0, 1, 2);
-        ElevatorStatus status2 = new ElevatorStatus(0, 1, 2);
-        ElevatorStatus status3 = new ElevatorStatus(1, 1, 2);
+        ElevatorStatus status1 = new ElevatorStatus(0, 1, 2, false);
+        ElevatorStatus status2 = new ElevatorStatus(0, 1, 2, false);
+        ElevatorStatus status3 = new ElevatorStatus(1, 1, 2, false);
 
         /// THEN ///
         assertEquals(status1, status2);

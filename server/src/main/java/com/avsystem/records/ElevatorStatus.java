@@ -6,13 +6,14 @@ import java.util.Objects;
 
 public record ElevatorStatus(
         Integer elevatorId,
-        Integer currentFloor,
-        Integer destinationFloor
+        Integer current,
+        Integer destination,
+        Boolean isOpen
 ) {
     //// METHODS ////
 
     public ElevatorDirection getDirection() {
-        return ElevatorDirection.get(currentFloor, destinationFloor);
+        return ElevatorDirection.get(current, destination);
     }
 
     //// OVERRIDE ////
@@ -24,16 +25,17 @@ public record ElevatorStatus(
 
         return
             this.elevatorId.equals(other.elevatorId) &&
-            this.currentFloor.equals(other.currentFloor) &&
-            this.destinationFloor.equals(other.destinationFloor);
+            this.current.equals(other.current) &&
+            this.destination.equals(other.destination) &&
+            this.isOpen.equals(other.isOpen);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
             this.elevatorId,
-            this.currentFloor,
-            this.destinationFloor
+            this.current,
+            this.destination
         );
     }
 }

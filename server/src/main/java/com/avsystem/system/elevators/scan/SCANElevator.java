@@ -2,7 +2,10 @@ package com.avsystem.system.elevators.scan;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
+import com.avsystem.records.ElevatorStatus;
 import com.avsystem.system.elevators.Elevator;
+import com.avsystem.system.elevators.scan.states.SCANState;
+import com.avsystem.system.elevators.scan.states.main.IdleSCANState;
 
 import java.util.*;
 
@@ -35,17 +38,20 @@ public class SCANElevator extends Elevator {
     private final Queue<ElevatorRequest> postponedRequests = new LinkedList<>();
 
 
+    private SCANState state;
+
     //// CONSTRUCTOR ////
 
     public SCANElevator(Integer elevatorId) {
         super(elevatorId);
+        this.state = new IdleSCANState(this);
     }
 
-    ////
+    //// ELEVATOR CONTROLS ////
 
     @Override
     public void step() {
-        
+        this.state = (SCANState) state.step();
     }
 
     @Override
@@ -85,5 +91,24 @@ public class SCANElevator extends Elevator {
 
     public Queue<ElevatorRequest> getPostponedRequests() {
         return postponedRequests;
+    }
+
+    public SCANState getState() {
+        return state;
+    }
+
+    @Override
+    public Boolean isOpen() {
+        return this.state.isOpen();
+    }
+
+    @Override
+    public ElevatorStatus status() {
+        return new ElevatorStatus(
+            this.elevatorId,
+            this.state.current(),
+            this.state.destination(),
+            this.isOpen()
+        );
     }
 }
