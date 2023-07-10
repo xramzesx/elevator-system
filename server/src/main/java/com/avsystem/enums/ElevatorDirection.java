@@ -1,5 +1,7 @@
 package com.avsystem.enums;
 
+import com.avsystem.records.ElevatorStatus;
+
 public enum ElevatorDirection {
     DOWN(-1), IDLE(0), UP(1);
 
@@ -26,5 +28,9 @@ public enum ElevatorDirection {
         if (startFloor > finalFloor)
             return DOWN;
         return IDLE;
+    }
+
+    public static ElevatorDirection get(ElevatorStatus status) {
+        return get(status.current(), status.destination());
     }
 }
