@@ -12,8 +12,8 @@ public class PostponeSCANState extends QueueSCANState {
 
     @Override
     public State enter() {
-        System.out.println(
-            direction + ": Postponed request from " + this.forwardRequests.first().floor() + ". floor"
+        this.log(
+            "Postponed request from " + this.forwardRequests.first().floor() + ". floor"
         );
         this.postponedRequests.add(
             this.forwardRequests.pollFirst()

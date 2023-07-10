@@ -12,7 +12,7 @@ public class EndSCANState extends QueueSCANState {
 
     @Override
     public State enter() {
-        System.out.println(direction.toString() + ": End reached");
+        this.log("End reached");
 
         this.forwardRequests.addAll(this.postponedRequests);
         this.postponedRequests.clear();

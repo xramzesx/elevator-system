@@ -2,6 +2,7 @@ package com.avsystem.system.elevators.scan.states.main;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.interfaces.State;
+import com.avsystem.records.ElevatorRequest;
 import com.avsystem.system.elevators.scan.SCANElevator;
 import com.avsystem.system.elevators.scan.states.SCANState;
 
@@ -12,7 +13,13 @@ public class IdleSCANState extends SCANState {
 
     @Override
     public State enter() {
-        System.out.println("Idle state reached");
+        this.log("Idle state reached");
+        this.elevator.getIdleRequests().remove(
+            new ElevatorRequest(
+                this.current(),
+                ElevatorDirection.IDLE
+            )
+        );
         return this;
     }
 
@@ -54,4 +61,10 @@ public class IdleSCANState extends SCANState {
         return ElevatorDirection.IDLE;
     }
 
+    private void log(String string) {
+        System.out.println(
+            "> [" + this.elevator.status().elevatorId() + "][" +
+            ElevatorDirection.IDLE + "|" + this.current() + "]: " + string
+        );
+    }
 }

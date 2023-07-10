@@ -13,7 +13,7 @@ public class InitSCANState extends QueueSCANState {
 
     @Override
     public State enter() {
-        System.out.println(direction + ": Init state machine");
+        this.log("Init state machine");
         return this.step();
     }
 

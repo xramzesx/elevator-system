@@ -52,4 +52,8 @@ public abstract class QueueSCANState extends SCANState {
     public ElevatorDirection direction() {
         return this.direction;
     }
+
+    protected void log(String string) {
+        System.out.println("> ["+this.elevator.status().elevatorId() + "][" + this.direction + "|"+ this.current() +"]: " + string);
+    }
 }

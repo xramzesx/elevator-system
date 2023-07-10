@@ -20,13 +20,11 @@ public class MoveSCANState extends QueueSCANState {
         this.elevator.move(direction);
         ElevatorStatus status = this.elevator.status();
 
-        System.out.println(
-            direction +
-            ": Moved el:" + status.elevatorId() +
-            " from: " + prevFloor +
-            ". to: " + status.current() +
-            ". dest: " + destination + ". floor"
+        this.log(
+            "from: " + prevFloor +
+            ". to: " + status.current()
         );
+
         return this.elevator
             .getCurrentFloor()
             .equals(

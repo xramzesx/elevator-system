@@ -12,8 +12,7 @@ public class OpenSCANState extends QueueSCANState {
 
     @Override
     public State enter() {
-        System.out.println(direction + ": Open door at " + elevator.getCurrentFloor() + " floor");
-        /// TODO: add isOpen -> true
+        this.log("Open door at " + elevator.getCurrentFloor() + " floor");
 
         /// POP FIRST ELEMENT ///
         this.forwardRequests.pollFirst();

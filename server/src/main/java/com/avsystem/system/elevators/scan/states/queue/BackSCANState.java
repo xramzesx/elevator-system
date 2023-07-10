@@ -12,7 +12,7 @@ public class BackSCANState extends QueueSCANState {
 
     @Override
     public State enter() {
-        System.out.println(direction + ": Back reached");
+        this.log("Back reached");
 
         /// TODO: check if opposed ElevatorDirection affects on algorithm
         this.backwardRequests.add(forwardRequests.pollFirst());
