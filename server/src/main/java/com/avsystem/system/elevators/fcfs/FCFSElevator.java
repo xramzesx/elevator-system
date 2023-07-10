@@ -4,15 +4,13 @@ import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
 import com.avsystem.system.elevators.Elevator;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * This
- */
 public class FCFSElevator extends Elevator {
 
-    private final Queue<ElevatorRequest> requests = new LinkedList<>();
+    private final Deque<ElevatorRequest> requests = new LinkedList<>();
     private ElevatorRequest currentRequest = null;
 
     public FCFSElevator(Integer elevatorId) {
@@ -53,5 +51,21 @@ public class FCFSElevator extends Elevator {
     @Override
     public void pickup(Integer floor, ElevatorDirection direction) {
         requests.add(new ElevatorRequest(floor, direction));
+    }
+
+    @Override
+    public void update(Integer startFloor, Integer finalFloor) {
+        if (currentRequest != null) {
+            requests.addFirst(currentRequest);
+            currentRequest = null;
+        }
+
+        this.currentFloor = startFloor;
+        this.currentRequest = new ElevatorRequest(finalFloor, ElevatorDirection.get(startFloor, finalFloor));
+    }
+
+    @Override
+    public Integer requests() {
+        return (this.currentRequest == null ? 0 : 1) + this.requests.size();
     }
 }

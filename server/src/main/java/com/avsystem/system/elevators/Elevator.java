@@ -26,6 +26,9 @@ public abstract class Elevator {
 
     public abstract void pickup(Integer floor, ElevatorDirection direction);
 
+    public abstract void update(Integer startFloor, Integer finalFloor);
+
+    public abstract Integer requests();
     //// COMMON METHODS ////
 
     public void pickup(Integer floor) {
