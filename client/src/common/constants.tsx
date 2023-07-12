@@ -1,3 +1,8 @@
+const api = {
+    /// TODO: use environment variables ///
+    url : new URL("http://localhost:8080")
+}
+
 const ui =  {
     maxWidth: "1200px",
     colors : {
@@ -23,4 +28,4 @@ const elevator = {
     }
 }
 
-export default {ui, elevator}
+export default {ui, elevator, api}
