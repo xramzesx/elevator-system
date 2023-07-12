@@ -43,7 +43,7 @@ const SessionItem = (props: ISessionItem) => {
                 <TableCell>{props.config.strategyVariant}</TableCell>
                 <TableCell>
                     <Button variant="contained"  component={Link} to={`/simulation/${props.simulationId}`}>
-                        Go to
+                        Open
                     </Button>   
                 </TableCell>
             </TableRow>
