@@ -1,15 +1,29 @@
 package com.avsystem.system.pickups;
 
 import com.avsystem.enums.ElevatorDirection;
+import com.avsystem.records.ElevatorRequest;
 import com.avsystem.system.elevators.Elevator;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 public class BestCostPickupStrategy extends ElevatorPickupStrategy {
+    private final Set<ElevatorRequest> processedRequests = new HashSet<>();
+
+    @Override
+    public void step() {
+        super.step();
+        processedRequests.clear();
+    }
+
     @Override
     public void pickup(Integer floor, ElevatorDirection direction) {
         if (elevators.size() == 0)
             return;
+        if (processedRequests.contains(new ElevatorRequest(floor, direction)))
+            return;
+
         Elevator bestElevator = elevators.get(0);
         for (Elevator elevator: this.elevators) {
             ElevatorDirection elevatorDirection = elevator.status().getDirection();
@@ -35,6 +49,7 @@ public class BestCostPickupStrategy extends ElevatorPickupStrategy {
         }
 
         bestElevator.pickup(floor, direction);
+        processedRequests.add(new ElevatorRequest(floor, direction));
         System.out.println(floor + " " + direction + " " + bestElevator.status().elevatorId());
 
     }
@@ -52,6 +67,15 @@ public class BestCostPickupStrategy extends ElevatorPickupStrategy {
         if (elevator == null)
             return;
 
+        processedRequests.add(
+            new ElevatorRequest(
+                startFloor,
+                ElevatorDirection.get(
+                    startFloor,
+                    finalFloor
+                )
+            )
+        );
         elevator.update(startFloor, finalFloor);
     }
 }
