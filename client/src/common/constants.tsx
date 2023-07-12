@@ -5,6 +5,7 @@ const api = {
 
 const ui =  {
     maxWidth: "1200px",
+    mobileWidth: "800px",
     colors : {
         background: "hsl(246deg 100% 25%)",
         foreground: "hsl(246deg 40% 90%)"
@@ -25,6 +26,10 @@ const elevator = {
     },
     panel : {
         width: elevatorCar.width + "rem"
+    },
+    count : {
+        max: 16,
+        min: 1
     }
 }
 
