@@ -6,6 +6,7 @@ import constants from 'src/common/constants';
 import SimulationPage from './pages/simulation/SimulationPage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import HomePage from './pages/home/HomePage';
+import NewSimulationPage from './pages/new/NewSimulationPage';
 
 
 const Container = styled.div`
@@ -35,6 +36,7 @@ const App = () => {
             <Routes>
               <Route path='/' Component={HomePage}/>
               <Route path='/simulation/:simulationId' Component={SimulationPage}/>
+              <Route path='/new' Component={NewSimulationPage}/>
             </Routes>
           </Content>
           
