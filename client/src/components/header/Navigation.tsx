@@ -1,7 +1,6 @@
 
 import styled from "styled-components"
 import constants from "../../common/constants"
-import SystemForm from "./SystemForm"
 import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
 
@@ -28,6 +27,23 @@ const Navbar = styled.nav`
 
     position: sticky;
     top: 0;
+
+    @media(max-width: ${constants.ui.maxWidth}) {
+        flex-direction: row;
+    }
+`
+
+const Menu = styled.div`
+    display: flex;
+    flex: 1;
+    gap: 1rem;
+    flex-direction: column;
+    
+    @media(max-width: ${constants.ui.maxWidth}) {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
 `
 
 const Navigation = () => {
@@ -36,13 +52,14 @@ const Navigation = () => {
         <Header>
             <Navbar>
                 <h1>ELEVATOR</h1> 
-                <Button variant="contained" component={Link} to="/new">
-                    New
-                </Button>
-                <Button variant="contained" component={Link} to="/">
-                    SESSIONS
-                </Button>
-                <SystemForm />               
+                <Menu>
+                    <Button variant="contained" component={Link} to="/new">
+                        New
+                    </Button>
+                    <Button variant="outlined" component={Link} to="/">
+                        SESSIONS
+                    </Button>
+                </Menu>
             </Navbar>
         </Header>
     )
