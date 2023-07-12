@@ -5,8 +5,12 @@ import ElevatorSimulation from './components/elevator/ElevatorSimulation';
 
 
 const Container = styled.div`
-  /* background-color: green; */
   min-height: 100vh;
+  display: flex;
+  
+  @media(max-width: ${constants.ui.maxWidth}) {
+    flex-direction: column;
+  }
 `
 
 const App = () => {
