@@ -1,6 +1,7 @@
 package com.avsystem.system.systems;
 
 import com.avsystem.enums.ElevatorDirection;
+import com.avsystem.records.ElevatorRequest;
 import com.avsystem.records.ElevatorStatus;
 import com.avsystem.system.elevators.Elevator;
 import com.avsystem.system.factories.ElevatorFactory;
@@ -20,6 +21,10 @@ public abstract class ElevatorSystem {
         this.strategy = strategy;
         this.factory = factory;
         this.reset();
+    }
+
+    public void pickup(ElevatorRequest request) {
+        this.pickup(request.floor(), request.direction());
     }
 
     public void pickup(Integer floor, ElevatorDirection direction) {
