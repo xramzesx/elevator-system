@@ -24,36 +24,6 @@ const Content = styled.div`
 const queryClient = new QueryClient()
 
 const App = () => {
-  useEffect(() => {
-    // fetch("http://localhost:8080/system/scan/pickup", {
-    //   method: "POST", 
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body : JSON.stringify({
-    //     floor: 2,
-    //     direction: "UP"
-    //   })
-    // })
-    // .then( async response => {
-    //   console.log(await response.json())
-    // })
-
-    // fetch("http://localhost:8080/simulation", {
-    //   method: "POST", 
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body : JSON.stringify({
-    //     systemVariant: "SCAN",
-    //     factoryVariant: "DEFAULT",
-    //     strategyVariant: "DEFAULT",
-    //     highestFloor: 10,
-    //     lowestFloor: -10,
-    //     elevatorCount: 16,
-    //     delay: 1000,
-    //   })
-    // })
-    // .then( async response => {
-    //   console.log(await response.json())
-    // })
-  }, [])
 
   return (
     <QueryClientProvider client={queryClient}>
