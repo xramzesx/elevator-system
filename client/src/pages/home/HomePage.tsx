@@ -1,5 +1,4 @@
 import { SimulationConfig } from "@common/types"
-import { useMemo } from "react"
 import useSimulations from "src/hooks/useSimulations"
 import { styled } from "styled-components"
 import SessionsTable from "./SessionsTable"
@@ -15,15 +14,7 @@ const Container = styled.div`
     gap: 1rem;
 `
 
-const Title = styled.h1`
-    
-`
-
-const Description = styled.p`
-    
-`
-
-const TableWrapper = styled.div`
+const ContentWrapper = styled.div`
     max-width: ${constants.ui.maxWidth};
     width: 100%;
 `
@@ -33,15 +24,15 @@ const HomePage = (props: any) => {
     console.log('simulations', data)
     return (
         <Container>
-            <Title>Hi!</Title>
-            <Description>
+            <h1>Hi!</h1>
+            <p>
                 Create new simulation or choose one from list below!
-            </Description>
-            <TableWrapper>
+            </p>
+            <ContentWrapper>
                 <SessionsTable
                     configs={data ?? new Map<string, SimulationConfig>()}
                 />
-            </TableWrapper>
+            </ContentWrapper>
         </Container>
     )
 }
