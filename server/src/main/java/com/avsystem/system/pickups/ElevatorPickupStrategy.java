@@ -13,4 +13,11 @@ public abstract class ElevatorPickupStrategy {
     public void setContext(List<Elevator> elevators) {
         this.elevators = elevators;
     }
+    public void step() {
+        System.out.println("[step]: begin");
+        for (Elevator elevator: this.elevators) {
+            elevator.step();
+        }
+        System.out.println("[step]: finish");
+    }
 }

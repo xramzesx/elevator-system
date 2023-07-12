@@ -34,11 +34,7 @@ public abstract class ElevatorSystem {
     };
     public void step() {
         synchronized (mutex) {
-            System.out.println("[step]: begin");
-            for (Elevator elevator: this.elevators) {
-                elevator.step();
-            }
-            System.out.println("[step]: finish");
+            this.strategy.step();
         }
     }
     public void reset() {
