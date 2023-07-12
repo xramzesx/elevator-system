@@ -26,9 +26,9 @@ const ElevatorCarTrack = (props: IElevatorCarTrack) => {
     return (
         <Container>
             <ElevatorCar 
-                status={props.status}
-                lowestFloor={props.lowestFloor}
-                highestFloor={props.highestFloor}
+                $status={props.status}
+                $lowestFloor={props.lowestFloor}
+                $highestFloor={props.highestFloor}
             />
         </Container>
     )

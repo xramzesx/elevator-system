@@ -42,11 +42,12 @@ interface IElevatorCarManager {
 
 const ElevatorCarManager = (props: IElevatorCarManager) => {
 
-    const tracks = useMemo(() => props.statusList.map(status => (
+    const tracks = useMemo(() => props.statusList.map((status, index) => (
         <ElevatorCarTrack
             status={status}
             lowestFloor={props.lowestFloor}
             highestFloor={props.highestFloor}
+            key={index}
         />
     )), [props.statusList])
     
