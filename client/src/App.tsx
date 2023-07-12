@@ -1,5 +1,4 @@
 import {useEffect} from 'react';
-import './App.css';
 import { styled } from 'styled-components';
 import Navigation from './components/header/Navigation';
 import ElevatorSimulation from './components/elevator/ElevatorSimulation';
