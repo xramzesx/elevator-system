@@ -1,7 +1,8 @@
 import styled from "styled-components"
-import { ElevatorStatus } from "../../../common/types"
+import { ElevatorRequest, ElevatorStatus } from "../../../common/types"
 import constants from "../../../common/constants"
 import ElevatorDoors from "../door/ElevatorDoors"
+import ElevatorPanel from "./ElevatorPanel"
 
 const Floor = styled.div`
     position: relative;
@@ -33,12 +34,6 @@ const FloorNumber = styled.div`
     /* z-index: -1; */
 `
 
-const ElevatorPanel = styled.div`
-    background: #0001;
-    width: ${constants.elevator.car.width};
-    height: 100%;
-`
-
 const Container = styled.div`
     width: 100%;
     max-width: ${constants.ui.maxWidth};
@@ -53,6 +48,7 @@ interface IElevatorFloor {
     statusList: ElevatorStatus[],
     isHighest?: boolean,
     isLowest?: boolean,
+    onPickup: (request: ElevatorRequest) => void
 }
 
 const ElevatorFloor = (props: IElevatorFloor) => {
@@ -67,7 +63,12 @@ const ElevatorFloor = (props: IElevatorFloor) => {
                     floor={props.floor} 
                     statusList={props.statusList}             
                 />
-                <ElevatorPanel/>
+                <ElevatorPanel
+                    floor={props.floor}
+                    isHighest={props.isHighest}
+                    isLowest={props.isLowest}
+                    onPickup={props.onPickup}
+                />
             </Container>
 
         </Floor>
