@@ -10,7 +10,7 @@ import com.avsystem.system.pickups.ElevatorPickupStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ElevatorSystem {
+public class ElevatorSystem {
     private final Object mutex = new Object();
 
     protected ElevatorPickupStrategy strategy;
@@ -42,6 +42,7 @@ public abstract class ElevatorSystem {
             this.strategy.step();
         }
     }
+
     public void reset() {
         synchronized (mutex) {
             this.elevators = this.factory.build();
