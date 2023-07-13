@@ -6,6 +6,7 @@ import com.avsystem.records.ElevatorRequest;
 import com.avsystem.records.ElevatorSimulationConfig;
 import com.avsystem.records.ElevatorStatus;
 import com.avsystem.system.systems.ElevatorSystem;
+import com.avsystem.system.systems.FCFSElevatorSystem;
 import com.avsystem.system.systems.SCANElevatorSystem;
 
 import java.util.List;
@@ -24,8 +25,14 @@ public class ElevatorSimulation implements Runnable{
             case SCAN -> {
                 this.system = new SCANElevatorSystem(this.config.elevatorCount());
             }
+            case FCFS -> {
+                this.system = new FCFSElevatorSystem(this.config.elevatorCount());
+            }
             case CUSTOM -> {
-                /// TODO: add custom elevator system
+                this.system = new ElevatorSystem(
+                    this.config.strategyVariant().get(),
+                    this.config.factoryVariant().get(this.config.elevatorCount())
+                );
             }
         }
     }
