@@ -103,7 +103,18 @@ public class SCANElevator extends Elevator {
     }
 
     @Override
-    public Integer requests() {
+    public Set<ElevatorRequest> requests() {
+        Set<ElevatorRequest> requests = new HashSet<>();
+
+        requests.addAll(this.downwardRequests);
+        requests.addAll(this.downwardRequests);
+        requests.addAll(this.postponedRequests);
+        requests.addAll(this.idleRequests);
+
+        return requests;
+    }
+    @Override
+    public Integer remaining() {
         return
             this.upwardRequests.size() +
             this.downwardRequests.size() +

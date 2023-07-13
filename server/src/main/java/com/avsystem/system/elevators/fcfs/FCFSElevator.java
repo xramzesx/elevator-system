@@ -4,9 +4,7 @@ import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
 import com.avsystem.system.elevators.Elevator;
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class FCFSElevator extends Elevator {
 
@@ -65,7 +63,17 @@ public class FCFSElevator extends Elevator {
     }
 
     @Override
-    public Integer requests() {
+    public Set<ElevatorRequest> requests() {
+        Set<ElevatorRequest> requests = new HashSet<>(this.requests);
+
+        if (this.currentRequest != null)
+            requests.add(this.currentRequest);
+
+        return requests;
+    }
+
+    @Override
+    public Integer remaining() {
         return (this.currentRequest == null ? 0 : 1) + this.requests.size();
     }
 }

@@ -1,7 +1,10 @@
 package com.avsystem.system.elevators;
 
 import com.avsystem.enums.ElevatorDirection;
+import com.avsystem.records.ElevatorRequest;
 import com.avsystem.records.ElevatorStatus;
+
+import java.util.Set;
 
 /**
  * Elevator is the abstract base class for each individual elevator.
@@ -28,7 +31,9 @@ public abstract class Elevator {
 
     public abstract void update(Integer startFloor, Integer finalFloor);
 
-    public abstract Integer requests();
+    public abstract Set<ElevatorRequest> requests();
+    public abstract Integer remaining();
+
     //// COMMON METHODS ////
 
     public void pickup(Integer floor) {

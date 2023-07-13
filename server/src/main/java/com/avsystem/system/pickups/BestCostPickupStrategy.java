@@ -23,6 +23,8 @@ public class BestCostPickupStrategy extends ElevatorPickupStrategy {
             return;
         if (processedRequests.contains(new ElevatorRequest(floor, direction)))
             return;
+        if (this.requests().contains(new ElevatorRequest(floor, direction)))
+            return;
 
         Elevator bestElevator = elevators.get(0);
         for (Elevator elevator: this.elevators) {
@@ -43,7 +45,7 @@ public class BestCostPickupStrategy extends ElevatorPickupStrategy {
             }
 
             /// get elevator in motion ///
-            if (direction.equals(elevatorDirection) || bestElevator.requests() > elevator.requests()) {
+            if (direction.equals(elevatorDirection) || bestElevator.remaining() > elevator.remaining()) {
                 bestElevator = elevator;
             }
         }
