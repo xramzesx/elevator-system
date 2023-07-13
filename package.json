@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "run-script-os",
-    "start:windows" : ".\\run.bat",
-    "start:darwin:linux" : "chmod u+x ./run.sh && ./run.sh",
+    "start:windows": ".\\run.bat",
+    "start:darwin:linux": "chmod u+x ./run.sh && ./run.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/xramzesx/elevator-system/issues"
   },
-  "homepage": "https://github.com/xramzesx/elevator-system#readme"
+  "homepage": "https://github.com/xramzesx/elevator-system#readme",
+  "dependencies": {
+    "run-script-os": "^1.1.6"
+  }
 }
