@@ -1,6 +1,5 @@
 const api = {
-    /// TODO: use environment variables ///
-    url : new URL("http://localhost:8080")
+    url : new URL(process.env.SERVER_ADDRESS ?? "http://localhost:8080")
 }
 
 const ui =  {
@@ -31,7 +30,7 @@ const elevator = {
         max: 16,
         min: 1
     },
-    minDelay: 500
+    minDelay: 1000
 }
 
 export default {ui, elevator, api}

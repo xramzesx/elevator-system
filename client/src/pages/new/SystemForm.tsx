@@ -120,7 +120,7 @@ const SystemForm = () => {
 
         /// VALIDATION ///
 
-        if ( elevatorCount < 1 || elevatorCount > 16 ) {
+        if ( elevatorCount < constants.elevator.count.min || elevatorCount > constants.elevator.count.max ) {
             setErrorMessage("Elevator must be in range [1,16]")
             return
         }
