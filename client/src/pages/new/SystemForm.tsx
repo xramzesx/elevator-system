@@ -45,6 +45,21 @@ const FieldLegend = styled.legend`
     padding: .5rem;
 `
 
+const FormFooter = styled.div`
+    display: flex;
+    align-items: space-between;
+    width: 100%;
+`
+
+const ErrorMessage = styled.div`
+    min-height: 2rem;
+    color: red;
+    font-weight: 600;
+    width: 100%;
+    /* text-align: center; */
+    padding-left: 1rem;
+`
+
 const SystemForm = () => {
     const navigate = useNavigate()
 
@@ -52,12 +67,16 @@ const SystemForm = () => {
     const [factory, setFactory] = useState(ElevatorFactoryVariant.DEFAULT)
     const [strategy, setStrategy] = useState(ElevatorPickupStrategy.DEFAULT)
     
-    const [elevatorCount, setElevatorCount] = useState(1)
-    const [highestFloor, setHighestFloor] = useState(0)
-    const [lowestFloor, setLowestFloor] = useState(0)
-    const [delay, setDelay] = useState(100)
+    const [elevatorCount, setElevatorCount] = useState(3)
+    const [highestFloor, setHighestFloor] = useState(10)
+    const [lowestFloor, setLowestFloor] = useState(-2)
+    const [delay, setDelay] = useState(constants.elevator.minDelay)
 
     const [isLoading, setIsLoading] = useState(false)
+
+    const [errorMessage, setErrorMessage] = useState("")
+
+    //// HANDLERS ////
 
     const handleSystemChange = (event: SelectChangeEvent<ElevatorSystemVariant>) => {
         setSystem(event.target.value as ElevatorSystemVariant)
@@ -97,7 +116,27 @@ const SystemForm = () => {
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        
+        setErrorMessage("")
+
+        /// VALIDATION ///
+
+        if ( elevatorCount < 1 || elevatorCount > 16 ) {
+            setErrorMessage("Elevator must be in range [1,16]")
+            return
+        }
+
+        if (highestFloor <= lowestFloor) {
+            setErrorMessage("Highest floor must be higher than lowest floor")
+            return;
+        }
+
+        if (delay < constants.elevator.minDelay) {
+            setErrorMessage(`Delay can't be below ${constants.elevator.minDelay}ms`)
+            return;
+        }
+
+        /// SEND REQUEST ///
+
         const config : SimulationConfig = {
             systemVariant : system,
             factoryVariant: factory,
@@ -126,6 +165,8 @@ const SystemForm = () => {
         navigate(`/simulation/${simulationId}`)
     }
 
+    //// RENDER ////
+
     return (
         <Paper>
             <Form onSubmit={handleSubmit}>
@@ -137,6 +178,7 @@ const SystemForm = () => {
                             onChange={handleSystemChange}
                         >
                             <MenuItem value={ElevatorSystemVariant.SCAN}>SCAN System</MenuItem>
+                            <MenuItem value={ElevatorSystemVariant.FCFS}>FCFS System</MenuItem>
                             <MenuItem value={ElevatorSystemVariant.CUSTOM}>Custom System</MenuItem>
                         </Select>
                         <TextField 
@@ -148,7 +190,7 @@ const SystemForm = () => {
                         <TextField 
                             value={delay} 
                             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} 
-                            label="Delay" 
+                            label="Delay (ms)" 
                             onChange={handleDelayChange}
                         />
                         <TextField 
@@ -181,13 +223,21 @@ const SystemForm = () => {
                             disabled={system !== ElevatorSystemVariant.CUSTOM}
                         >
                             <MenuItem value={ElevatorPickupStrategy.DEFAULT}>Default strategy</MenuItem>
-                            <MenuItem value={ElevatorPickupStrategy.BCOST}>Best Cost strategy</MenuItem>
+                            <MenuItem value={ElevatorPickupStrategy.BEST_COST}>Best Cost strategy</MenuItem>
+                            <MenuItem value={ElevatorPickupStrategy.BALANCED_BEST_COST}>Balanced Best Cost strategy</MenuItem>
+                            <MenuItem value={ElevatorPickupStrategy.RANDOMIZED_BEST_COST}>Randomized Best Cost strategy</MenuItem>
+                            <MenuItem value={ElevatorPickupStrategy.LEAST_BUSY}>Least Busy strategy</MenuItem>
                         </Select>
                     </Field>
                 </FieldWrapper>
-                <Button type="submit" variant="contained" disabled={isLoading}>
-                    Create    
-                </Button>                
+                <FormFooter>
+                    <ErrorMessage>
+                        {errorMessage}
+                    </ErrorMessage>
+                    <Button type="submit" variant="contained" disabled={isLoading}>
+                        Create    
+                    </Button>                
+                </FormFooter>
             </Form>
         </Paper>
     )
