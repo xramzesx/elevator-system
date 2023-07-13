@@ -1,0 +1,22 @@
+{
+  "name": "elevator-system",
+  "version": "1.0.0",
+  "description": "(TODO: write readme)\r (TODO: insert example video)",
+  "main": "index.js",
+  "scripts": {
+    "start": "run-script-os",
+    "start:windows" : ".\\run.bat",
+    "start:darwin:linux" : "chmod u+x ./run.sh && ./run.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xramzesx/elevator-system.git"
+  },
+  "author": "Jakub Kędra (@xramzes)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xramzesx/elevator-system/issues"
+  },
+  "homepage": "https://github.com/xramzesx/elevator-system#readme"
+}
