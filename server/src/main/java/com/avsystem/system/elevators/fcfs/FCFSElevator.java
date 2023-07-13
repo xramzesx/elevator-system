@@ -15,8 +15,12 @@ public class FCFSElevator extends Elevator {
         super(elevatorId);
     }
 
+    private Boolean isDoorsOpen = false;
+
     @Override
     public void step() {
+        this.isDoorsOpen = false;
+
         /// EMPTY QUEUE ///
         if (this.currentRequest == null && this.requests.size() == 0)
             return;
@@ -34,6 +38,7 @@ public class FCFSElevator extends Elevator {
         /// CHECK IF IDLE ///
 
         if (currentDirection.equals(ElevatorDirection.IDLE)) {
+            this.isDoorsOpen = true;
             currentRequest = null;
             return;
         }
@@ -42,6 +47,7 @@ public class FCFSElevator extends Elevator {
         this.currentFloor += currentDirection.getValue();
 
         if (this.currentFloor.equals(this.currentRequest.floor())) {
+            this.isDoorsOpen = true;
             this.currentRequest = null;
         }
     }
@@ -75,5 +81,10 @@ public class FCFSElevator extends Elevator {
     @Override
     public Integer remaining() {
         return (this.currentRequest == null ? 0 : 1) + this.requests.size();
+    }
+
+    @Override
+    public Boolean isOpen() {
+        return this.isDoorsOpen;
     }
 }
