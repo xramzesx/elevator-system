@@ -1,8 +1,8 @@
-package com.avsystem.system.pickups;
+package com.avsystem.simulation.pickups;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
-import com.avsystem.system.elevators.Elevator;
+import com.avsystem.simulation.elevators.Elevator;
 
 import java.util.HashSet;
 import java.util.List;

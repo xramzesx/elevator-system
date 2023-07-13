@@ -1,9 +1,9 @@
-package com.avsystem.system;
+package com.avsystem.simulation;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorStatus;
-import com.avsystem.system.systems.ElevatorSystem;
-import com.avsystem.system.systems.SCANElevatorSystem;
+import com.avsystem.simulation.systems.ElevatorSystem;
+import com.avsystem.simulation.systems.SCANElevatorSystem;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

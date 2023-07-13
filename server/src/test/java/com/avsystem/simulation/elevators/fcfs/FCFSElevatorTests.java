@@ -1,10 +1,9 @@
-package com.avsystem.system.elevators.fcfs;
+package com.avsystem.simulation.elevators.fcfs;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
 import com.avsystem.records.ElevatorStatus;
-import com.avsystem.system.elevators.Elevator;
-import com.avsystem.system.elevators.fcfs.FCFSElevator;
+import com.avsystem.simulation.elevators.Elevator;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

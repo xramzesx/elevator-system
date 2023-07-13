@@ -1,7 +1,7 @@
-package com.avsystem.system.factories;
+package com.avsystem.simulation.factories;
 
-import com.avsystem.system.elevators.Elevator;
-import com.avsystem.system.elevators.scan.SCANElevator;
+import com.avsystem.simulation.elevators.Elevator;
+import com.avsystem.simulation.elevators.scan.SCANElevator;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;

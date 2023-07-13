@@ -1,8 +1,8 @@
-package com.avsystem.system.elevators.scan.states.main;
+package com.avsystem.simulation.elevators.scan.states.main;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.interfaces.State;
-import com.avsystem.system.elevators.scan.SCANElevator;
+import com.avsystem.simulation.elevators.scan.SCANElevator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

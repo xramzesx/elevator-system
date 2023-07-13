@@ -1,12 +1,12 @@
-package com.avsystem.system.elevators.scan.states.main;
+package com.avsystem.simulation.elevators.scan.states.main;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.interfaces.State;
-import com.avsystem.system.elevators.scan.SCANElevator;
-import com.avsystem.system.elevators.scan.states.SCANState;
-import com.avsystem.system.elevators.scan.states.queue.EndSCANState;
-import com.avsystem.system.elevators.scan.states.queue.InitSCANState;
-import com.avsystem.system.elevators.scan.states.queue.QueueSCANState;
+import com.avsystem.simulation.elevators.scan.SCANElevator;
+import com.avsystem.simulation.elevators.scan.states.SCANState;
+import com.avsystem.simulation.elevators.scan.states.queue.EndSCANState;
+import com.avsystem.simulation.elevators.scan.states.queue.InitSCANState;
+import com.avsystem.simulation.elevators.scan.states.queue.QueueSCANState;
 
 public class DownSCANState extends SCANState {
     private QueueSCANState substate;

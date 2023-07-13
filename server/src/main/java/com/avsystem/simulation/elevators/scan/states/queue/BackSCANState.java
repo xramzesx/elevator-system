@@ -1,8 +1,8 @@
-package com.avsystem.system.elevators.scan.states.queue;
+package com.avsystem.simulation.elevators.scan.states.queue;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.interfaces.State;
-import com.avsystem.system.elevators.scan.SCANElevator;
+import com.avsystem.simulation.elevators.scan.SCANElevator;
 
 public class BackSCANState extends QueueSCANState {
 

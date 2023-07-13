@@ -1,9 +1,9 @@
-package com.avsystem.system.pickups.leastbusy;
+package com.avsystem.simulation.pickups.leastbusy;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
-import com.avsystem.system.elevators.Elevator;
-import com.avsystem.system.pickups.ElevatorPickupStrategy;
+import com.avsystem.simulation.elevators.Elevator;
+import com.avsystem.simulation.pickups.ElevatorPickupStrategy;
 
 public class LeastBusyPickupStrategy extends ElevatorPickupStrategy {
     @Override

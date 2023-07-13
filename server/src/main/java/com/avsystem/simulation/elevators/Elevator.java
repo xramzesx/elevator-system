@@ -1,4 +1,4 @@
-package com.avsystem.system.elevators;
+package com.avsystem.simulation.elevators;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;

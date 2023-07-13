@@ -1,9 +1,8 @@
-package com.avsystem.system;
+package com.avsystem.simulation;
 
 import com.avsystem.records.ElevatorSimulationConfig;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class SimulationManager {
 

@@ -1,9 +1,9 @@
-package com.avsystem.system.elevators.scan.states.queue;
+package com.avsystem.simulation.elevators.scan.states.queue;
 
 import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
-import com.avsystem.system.elevators.scan.SCANElevator;
-import com.avsystem.system.elevators.scan.states.SCANState;
+import com.avsystem.simulation.elevators.scan.SCANElevator;
+import com.avsystem.simulation.elevators.scan.states.SCANState;
 
 import java.util.Queue;
 import java.util.TreeSet;

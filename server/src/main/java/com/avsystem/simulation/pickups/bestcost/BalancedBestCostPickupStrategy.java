@@ -1,4 +1,4 @@
-package com.avsystem.system.pickups.bestcost;
+package com.avsystem.simulation.pickups.bestcost;
 
 
 public class BalancedBestCostPickupStrategy extends BestCostPickupStrategy {
