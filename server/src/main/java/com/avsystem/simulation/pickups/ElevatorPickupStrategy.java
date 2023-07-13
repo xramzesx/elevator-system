@@ -11,6 +11,13 @@ import java.util.Set;
 public abstract class ElevatorPickupStrategy {
     protected List<Elevator> elevators;
 
+    public void pickupInside(Integer floor, Integer elevatorId) {
+        if (this.elevators.size() <= elevatorId || elevatorId < 0)
+            return;
+
+        this.elevators.get(elevatorId).pickup(floor);
+    }
+
     public abstract void pickup (Integer floor, ElevatorDirection direction);
     public void setContext(List<Elevator> elevators) {
         this.elevators = elevators;

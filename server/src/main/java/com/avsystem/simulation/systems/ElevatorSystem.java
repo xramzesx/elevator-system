@@ -23,6 +23,12 @@ public class ElevatorSystem {
         this.reset();
     }
 
+    public void pickupInside(Integer floor, Integer elevatorId) {
+        synchronized (mutex) {
+            this.strategy.pickupInside(floor, elevatorId);
+        }
+    }
+
     public void pickup(ElevatorRequest request) {
         this.pickup(request.floor(), request.direction());
     }

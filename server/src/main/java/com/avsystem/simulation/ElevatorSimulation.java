@@ -83,6 +83,10 @@ public class ElevatorSimulation implements Runnable{
         this.system.pickup(floor, direction);
     }
 
+    public void pickupInside(Integer floor, Integer elevatorId) {
+        this.system.pickupInside(floor, elevatorId);
+    }
+
     public List<ElevatorStatus> status() {
         return this.system.status();
     }
