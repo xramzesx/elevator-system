@@ -30,7 +30,8 @@ const elevator = {
     count : {
         max: 16,
         min: 1
-    }
+    },
+    minDelay: 500
 }
 
 export default {ui, elevator, api}
