@@ -23,32 +23,60 @@ public class ElevatorSystem {
         this.reset();
     }
 
+    /**
+     * Pickup elevator from inside
+     * @param floor      destination floor
+     * @param elevatorId specific elevator id
+     */
     public void pickupInside(Integer floor, Integer elevatorId) {
         synchronized (mutex) {
             this.strategy.pickupInside(floor, elevatorId);
         }
     }
 
+    /**
+     * Pickup elevator from outside (using ElevatorRequest)
+     * @param request elevator request
+     */
     public void pickup(ElevatorRequest request) {
         this.pickup(request.floor(), request.direction());
     }
 
+    /**
+     * Pickup elevator from outside
+     * @param floor
+     * @param direction
+     */
     public void pickup(Integer floor, ElevatorDirection direction) {
         synchronized (mutex) {
             this.strategy.pickup(floor, direction);
         }
     }
+
+    /**
+     * Change specific elevator state
+     * @param elevatorId
+     * @param startFloor
+     * @param finalFloor
+     */
     public void update(Integer elevatorId, Integer startFloor, Integer finalFloor ) {
         synchronized (mutex) {
             this.strategy.update(elevatorId, startFloor, finalFloor);
         }
     };
+
+    /**
+     * Next simulation step
+     */
     public void step() {
         synchronized (mutex) {
             this.strategy.step();
         }
     }
 
+    /**
+     * Rebuild elevator system
+     */
     public void reset() {
         synchronized (mutex) {
             this.elevators = this.factory.build();
@@ -56,6 +84,10 @@ public class ElevatorSystem {
         }
     }
 
+    /**
+     * Get elevator system status
+     * @return ElevatorStatus records
+     */
     public List<ElevatorStatus> status() {
         List<ElevatorStatus> result = new ArrayList<>();
 
