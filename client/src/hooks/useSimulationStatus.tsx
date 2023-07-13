@@ -13,7 +13,7 @@ const useSimulationStatus = (simulationId: string) => useQuery<ElevatorStatus[],
         const result = await response.json()
         return result as unknown as ElevatorStatus[]
     },{ 
-        refetchInterval: 100 
+        refetchInterval: constants.elevator.minDelay
     }
 )
 
