@@ -9,24 +9,19 @@ import java.util.Optional;
 import java.util.Set;
 
 public class BestCostPickupStrategy extends ElevatorPickupStrategy {
-    private final Set<ElevatorRequest> processedRequests = new HashSet<>();
 
-    @Override
-    public void step() {
-        super.step();
-        processedRequests.clear();
+    protected Integer initialElevator() {
+        return 0;
     }
 
     @Override
     public void pickup(Integer floor, ElevatorDirection direction) {
         if (elevators.size() == 0)
             return;
-        if (processedRequests.contains(new ElevatorRequest(floor, direction)))
-            return;
         if (this.requests().contains(new ElevatorRequest(floor, direction)))
             return;
 
-        Elevator bestElevator = elevators.get(0);
+        Elevator bestElevator = elevators.get(this.initialElevator());
         for (Elevator elevator: this.elevators) {
             ElevatorDirection elevatorDirection = elevator.status().getDirection();
 
@@ -44,40 +39,18 @@ public class BestCostPickupStrategy extends ElevatorPickupStrategy {
                 continue;
             }
 
-            /// get elevator in motion ///
+            /// get elevator in motion or least busy ///
             if (direction.equals(elevatorDirection) || bestElevator.remaining() > elevator.remaining()) {
                 bestElevator = elevator;
             }
         }
 
         bestElevator.pickup(floor, direction);
-        processedRequests.add(new ElevatorRequest(floor, direction));
         System.out.println(floor + " " + direction + " " + bestElevator.status().elevatorId());
 
     }
 
     @Override
     public void update(Integer elevatorId, Integer startFloor, Integer finalFloor) {
-        Elevator elevator = this
-            .elevators
-            .stream()
-            .filter(
-                el -> el.status().elevatorId().equals(elevatorId)
-            ).findFirst()
-            .orElse(null);
-
-        if (elevator == null)
-            return;
-
-        processedRequests.add(
-            new ElevatorRequest(
-                startFloor,
-                ElevatorDirection.get(
-                    startFloor,
-                    finalFloor
-                )
-            )
-        );
-        elevator.update(startFloor, finalFloor);
     }
 }

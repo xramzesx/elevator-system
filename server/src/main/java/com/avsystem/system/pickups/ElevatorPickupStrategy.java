@@ -12,7 +12,6 @@ public abstract class ElevatorPickupStrategy {
     protected List<Elevator> elevators;
 
     public abstract void pickup (Integer floor, ElevatorDirection direction);
-    public abstract void update(Integer elevatorId, Integer startFloor, Integer finalFloor);
     public void setContext(List<Elevator> elevators) {
         this.elevators = elevators;
     }
@@ -33,4 +32,21 @@ public abstract class ElevatorPickupStrategy {
 
         return requests;
     }
+
+    public void update(Integer elevatorId, Integer startFloor, Integer finalFloor) {
+        Elevator elevator = this
+                .elevators
+                .stream()
+                .filter(
+                        el -> el.status().elevatorId().equals(elevatorId)
+                ).findFirst()
+                .orElse(null);
+
+        if (elevator == null)
+            return;
+
+        elevator.update(startFloor, finalFloor);
+
+    };
+
 }
