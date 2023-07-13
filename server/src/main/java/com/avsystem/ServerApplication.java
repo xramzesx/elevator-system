@@ -1,4 +1,4 @@
-package com.avsystem.server;
+package com.avsystem;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
