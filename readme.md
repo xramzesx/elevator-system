@@ -70,9 +70,14 @@ A następnie uruchomić samą aplikację, poprzez polecenie
 npm start
 ```
 
-Powyższa komenda najpierw zbuduje plik .jar serwera, a następnie urcu
-Ze względu na konieczność pobrania zależności Maven, pierwsze uruchomienie może zająć trochę czasu. Kolejne uruchomi
+Powyższa komenda najpierw zbuduje plik .jar serwera, a następnie uruchamia docker-compose.
+Ze względu na konieczność pobrania zależności Maven, pierwsze uruchomienie może zająć trochę czasu. 
 
+Gdy już raz skompilujemy jar (będzie się on znajdował w `server/target/server-0.0.1-SNAPSHOT.jar`), możemy uruchomić kontenery poleceniem:
+
+```bash
+docker compose up
+```
 
 # Opis projektu
 
@@ -199,23 +204,6 @@ Klasa odpowiedzialna za symulację windy w czasie rzeczywistym. Do jej działąn
 
 Singleton, zarządzający wszystkimi symulacjami na serwerze. Jest on przystosowany do pracy z wieloma rdzeniami. To do  niego są kierowane zapytania wewnątrz kontrolerów HTTP.
 
-# Obsługa windy
-
-# Operacje na windzie
-
-## Pickup na zewnątrz windy
-Do wezwania windy wykorzystujemy metodę 
-```java
-Elevator.pickup(Integer floor, ElevatorDirection direction)
-```
-
-## Pickup wewnątrz windy
-Użytkownik windy wewnątrz niej chcąc przemieścić się na inne piętro wykorzystuje metodę
-
-```java
-Elevator.pickup(Integer floor)
-```
-
 # FAQ
 
 1. Jak zachowa się winda, jeśli jedzie nią wiele osób i każdy z nich ma różne piętro docelowe?
@@ -237,3 +225,17 @@ Natomiast wyboru piętra z wnętrza windy możemy dokonać za pomocą metody:
 ```java
 ElevatorSystem.pickupInside(Integer floor, Integer elevatorId)
 ```
+
+Po stronie samej instancji windy realizowane jest to w następujący sposób:
+
+- Do wezwania windy wykorzystujemy metodę 
+```java
+Elevator.pickup(Integer floor, ElevatorDirection direction)
+```
+
+- Natomiast do wezwania windy z wewnątrz niej wykorzystujemy poniższą metodę
+
+```java
+Elevator.pickup(Integer floor)
+```
+
