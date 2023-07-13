@@ -2,4 +2,4 @@ FROM maven:3.9.3-eclipse-temurin-17
 
 COPY . .
 
-RUN mvn clean package
+RUN mvn clean package -Dmaven.artifact.threads=30
