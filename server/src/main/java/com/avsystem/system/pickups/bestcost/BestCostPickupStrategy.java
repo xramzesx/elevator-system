@@ -5,10 +5,6 @@ import com.avsystem.records.ElevatorRequest;
 import com.avsystem.system.elevators.Elevator;
 import com.avsystem.system.pickups.ElevatorPickupStrategy;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
-
 public class BestCostPickupStrategy extends ElevatorPickupStrategy {
 
     protected Integer initialElevator() {
@@ -48,10 +44,5 @@ public class BestCostPickupStrategy extends ElevatorPickupStrategy {
 
         bestElevator.pickup(floor, direction);
         System.out.println(floor + " " + direction + " " + bestElevator.status().elevatorId());
-
-    }
-
-    @Override
-    public void update(Integer elevatorId, Integer startFloor, Integer finalFloor) {
     }
 }
