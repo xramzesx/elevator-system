@@ -1,21 +1,16 @@
 package com.avsystem.server.controllers;
 
-import com.avsystem.enums.ElevatorDirection;
 import com.avsystem.records.ElevatorRequest;
 import com.avsystem.records.ElevatorSimulationConfig;
 import com.avsystem.records.ElevatorStatus;
-import com.avsystem.records.ServerResponse;
 import com.avsystem.system.ElevatorSimulation;
 import com.avsystem.system.SimulationManager;
-import com.avsystem.system.systems.ElevatorSystem;
-import com.avsystem.system.systems.SCANElevatorSystem;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 @RestController
 public class ElevatorSystemController {
