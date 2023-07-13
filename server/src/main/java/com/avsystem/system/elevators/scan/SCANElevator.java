@@ -106,7 +106,7 @@ public class SCANElevator extends Elevator {
     public Set<ElevatorRequest> requests() {
         Set<ElevatorRequest> requests = new HashSet<>();
 
-        requests.addAll(this.downwardRequests);
+        requests.addAll(this.upwardRequests);
         requests.addAll(this.downwardRequests);
         requests.addAll(this.postponedRequests);
         requests.addAll(this.idleRequests);
