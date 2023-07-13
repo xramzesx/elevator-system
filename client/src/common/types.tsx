@@ -2,7 +2,8 @@
 
 export enum ElevatorSystemVariant {
     CUSTOM = "CUSTOM",
-    SCAN = "SCAN"
+    SCAN = "SCAN",
+    FCFS = "FCFS"
 }
 
 export enum ElevatorFactoryVariant {
@@ -13,7 +14,10 @@ export enum ElevatorFactoryVariant {
 
 export enum ElevatorPickupStrategy {
     DEFAULT = "DEFAULT",
-    BCOST = "BCOST"
+    BEST_COST = "BEST_COST",
+    BALANCED_BEST_COST = "BALANCED_BEST_COST",
+    RANDOMIZED_BEST_COST = "RANDOMIZED_BEST_COST",
+    LEAST_BUSY = "LEAST_BUSY"
 }
 
 
