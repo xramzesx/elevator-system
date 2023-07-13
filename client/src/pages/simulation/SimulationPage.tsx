@@ -4,6 +4,28 @@ import { useParams } from "react-router-dom"
 import ElevatorSimulation from "src/components/elevator/ElevatorSimulation"
 import useSimulationConfig from "src/hooks/useSimulationConfig";
 import { SimulationConfig } from "@common/types";
+import { styled } from "styled-components";
+import { CircularProgress } from "@mui/material";
+import ErrorIcon from '@mui/icons-material/Error';
+
+const Container = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+`
+
+const Title = styled.h1`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+`
+
+const Message = styled.p`
+    
+`
 
 const SimulationPage = () => {
     const { simulationId } = useParams<{simulationId: string}>()
@@ -12,11 +34,28 @@ const SimulationPage = () => {
         
     /// TODO: make better loading page and error page
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <Container>
+                <Title> 
+                    <CircularProgress />
+                    Loading...
+                </Title>
+            </Container>
+        );
     }
 
     if (isError) {
-        return <div>Error: {error?.message}</div>;
+        return (
+            <Container>
+                <Title>
+                    <ErrorIcon fontSize="large"/>
+                    Error
+                </Title> 
+                <Message>
+                    {error?.message}
+                </Message>
+            </Container>
+        );
     }
 
     return (
