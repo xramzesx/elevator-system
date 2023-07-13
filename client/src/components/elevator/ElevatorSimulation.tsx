@@ -5,6 +5,7 @@ import { styled } from "styled-components";
 import { pickup } from "src/common/utils";
 import ElevatorCarManager from "./car/ElevatorCarManager";
 import useSimulationStatus from "src/hooks/useSimulationStatus";
+import ElevatorDisplays from "./display/ElevatorDisplays";
 
 interface IElevatorSimulation {
     lowestFloor: number;
@@ -45,6 +46,9 @@ const ElevatorSimulation = (props : IElevatorSimulation) => {
 
     return (
         <>
+            <ElevatorDisplays
+                statusList={statusList}
+            />
             <ElevatorCarManager 
                 statusList={statusList} 
                 lowestFloor={lowestFloor} 
