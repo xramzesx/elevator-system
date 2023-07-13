@@ -15,7 +15,6 @@ const Component = styled.div`
 `
 
 const Container = styled.div`
-    min-height: 1rem;
     display: grid;
     grid-template-columns: 1fr auto;
     max-width: ${constants.ui.maxWidth};

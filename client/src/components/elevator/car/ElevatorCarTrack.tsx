@@ -11,7 +11,6 @@ const Container = styled.div`
     background: #0005;
     width: 100%;
     max-width: ${constants.elevator.car.width};
-    height: 1rem;
     position: relative;
 `
 
