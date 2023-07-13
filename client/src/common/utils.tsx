@@ -1,5 +1,5 @@
 import constants from "./constants";
-import { ElevatorRequest } from "./types";
+import { ElevatorDirection, ElevatorRequest, ElevatorStatus } from "./types";
 
 export const getRandomInt = (min:number, max:number)  => {
     min = Math.ceil(min);
@@ -19,4 +19,13 @@ export const pickup = async (simulationId: string, request: ElevatorRequest) => 
     
     if (!response.ok)
         throw new Error(`Code: ${response.status}`)
+}
+
+export const getDirection = (status: ElevatorStatus) => {
+    if (status.current == status.destination)
+        return ElevatorDirection.IDLE
+
+    return status.current < status.destination 
+        ? ElevatorDirection.UP 
+        : ElevatorDirection.DOWN
 }
