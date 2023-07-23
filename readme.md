@@ -89,7 +89,7 @@ Klasa modelująca schemat działań pojedynczej windy. Wyróżniamy wśród nich
 
 ## FCFS
 
-Winda przemiescza się wg kolejności zgłoszeń. Każde nowe zgłoszenie jest dodawane na koniec kolejki, bez względu na to, czy zostało ono zgłoszone z wnętrza windy bądź z zewnątrz windy.
+Winda przemieszcza się wg kolejności zgłoszeń. Każde nowe zgłoszenie jest dodawane na koniec kolejki, bez względu na to, czy zostało ono zgłoszone z wnętrza windy bądź z zewnątrz windy.
 
 ## SCAN
 
@@ -183,7 +183,7 @@ Obecnie znajdują sie dwie fabryki:
 Klasa implementująca wzorzec Strategy. Odpowiada za obsługę wszystkich wind z poziomu jednego wspólnego panelu - obsługę zgłoszeń z zewnątrz i wewnątrz windy. Wśród nich znajdują się dwie strategie:
 - `BestCostPickupStrategy` - Zgłoszenie przyjmuje winda, która jest najbliżej piętra zgłoszenia. (domyślna strategia, przeznaczona dla `SCANElevator`) 
     - Jeśli jest kilka takich wind, wybiera tą, która:
-        - posiada kierunek zgodny z kierunkiem rządania lub 
+        - posiada kierunek zgodny z kierunkiem żądania lub 
         - która posiada mniej zgłoszeń
 - `LeastBusyPickupStrategy` - Zgłoszenie otrzymuje winda z najmniejszą liczbą aktualnie przetwarzanych zgłoszeń (strategia przeznaczona dla `FCFSElevator`)
 
