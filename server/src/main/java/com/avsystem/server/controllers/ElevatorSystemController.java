@@ -72,4 +72,28 @@ public class ElevatorSystemController {
 
         return ResponseEntity.ok(request);
     }
+
+    @CrossOrigin
+    @PostMapping("/simulation/{simulationId}/pickup-inside")
+    public ResponseEntity<Map<String, String>> pickupInsideElevator(
+            @PathVariable String simulationId,
+            @RequestBody Map<String, String> request
+    ) {
+        if (!request.containsKey("elevatorId") || !request.containsKey("floor"))
+            return ResponseEntity.badRequest().build();
+
+        Integer elevatorId = Integer.valueOf(request.get("elevatorId"));
+        Integer floor = Integer.valueOf(request.get("floor"));
+
+        ElevatorSimulation simulation = SimulationManager.getInstance().get(simulationId);
+
+        if (simulation == null)
+            return ResponseEntity.notFound().build();
+
+        simulation.pickupInside(floor, elevatorId);
+
+        Map<String, String> result = new HashMap<>();
+        result.put("Status", "OK");
+        return ResponseEntity.ok(result);
+    }
 }
