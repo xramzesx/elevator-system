@@ -32,6 +32,7 @@ const FloorNumber = styled.div`
     color: lightgray;
     user-select: none;
     /* z-index: -1; */
+    pointer-events: none;
 `
 
 const Container = styled.div`
