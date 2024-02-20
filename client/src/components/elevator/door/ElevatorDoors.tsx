@@ -20,10 +20,12 @@ const ElevatorDoors = (props: IElevatorDoors) => {
     const doors = useMemo(
         () => props.statusList.map((status, index) => (
             <ElevatorDoor
-                $isOpen={status.isOpen && props.floor === status.current}
+                isOpen={status.isOpen && props.floor === status.current}
+                floor={props.floor}
+                elevatorId={index}
                 key={index}
             />
-        )),[props.statusList]
+        )),[props.statusList, props.floor]
     )
 
     return (

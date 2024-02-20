@@ -21,6 +21,22 @@ export const pickup = async (simulationId: string, request: ElevatorRequest) => 
         throw new Error(`Code: ${response.status}`)
 }
 
+export const pickupInside = async (simulationId: string, elevatorId: number, floor: number) => {
+    const response = await fetch(
+        new URL(`simulation/${simulationId}/pickup-inside`, constants.api.url),
+        {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body : JSON.stringify({
+                elevatorId,
+                floor
+            })
+        }
+    )
+    if (!response.ok)
+        throw new Error(`Code: ${response.status}`)
+}
+
 export const getDirection = (status: ElevatorStatus) => {
     if (status.current == status.destination)
         return ElevatorDirection.IDLE
