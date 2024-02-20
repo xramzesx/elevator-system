@@ -1,6 +1,6 @@
 # Elevator System
 
-System symulujący pracę do 16 wind równocześnie, korzystających z jednego, wspólnego panelu.
+System symulujący pracę do 16 wind równocześnie, wykorzystujących jeden wspólny panel.
 
 # Wykorzystane technologie:
 
@@ -29,8 +29,9 @@ System symulujący pracę do 16 wind równocześnie, korzystających z jednego, 
 
 # Uruchamianie
 
-Aplikację można uruchomić na dwa sposoby - uruchamiając każdą z aplikacji z osobna lub korzystając z kontenerów dockera.
-## Manualnie
+Aplikację można uruchomić na dwa sposoby - uruchamiając każdą z aplikacji z osobna lub poprzez kontenery dockera.
+
+## Manualnie (bez korzystania z `docker`)
 
 ### Uruchamianie klienta
 
@@ -43,7 +44,7 @@ npm start
 
 ### Uruchamianie serwera
 
-Serwer uruchomić można na kilka sposobów. Jednym z nich jest zaimportowanie jako projektu katalogu do IntelliJ i uruchomić bezpośrednio z IDE. Można też uruchomić serwer przy pomocy maven, najpierw kompilując projekt poleceniem:
+Serwer uruchomić można na kilka sposobów. Jednym z nich jest zaimportowanie jako projektu katalogu do IntelliJ i uruchomić bezpośrednio z IDE. Można też uruchomić serwer przy pomocy Maven, kompilując najpierw projekt poleceniem:
 
 ```
 mvn clean install
@@ -58,19 +59,19 @@ Domyślnie serwer zostanie uruchomiony pod adresem: `http://localhost:8080`
 
 ## Wykorzystując `docker`
 
-Aby uruchomić aplikację z wykorzystaniem dockera, w głównym katalogu należy najpierw uruchomić poniższe polecenie:
+Aby uruchomić aplikację z wykorzystaniem dockera, w głównym katalogu należy najpierw doinstalować brakujące pakiety:
 
 ```bash
 npm install 
 ```
 
-A następnie uruchomić samą aplikację, poprzez polecenie
+A następnie uruchomić aplikację, poprzez polecenie
 
 ```bash
 npm start
 ```
 
-Powyższa komenda najpierw zbuduje plik .jar serwera, a następnie uruchamia docker-compose.
+Powyższa komenda najpierw zbuduje plik .jar serwera, a następnie uruchomi docker-compose.
 Ze względu na konieczność pobrania zależności Maven, pierwsze uruchomienie może zająć trochę czasu. 
 
 Gdy już raz skompilujemy jar (będzie się on znajdował w `server/target/server-0.0.1-SNAPSHOT.jar`), możemy uruchomić kontenery poleceniem:
@@ -93,7 +94,9 @@ Winda przemieszcza się wg kolejności zgłoszeń. Każde nowe zgłoszenie jest 
 
 ## SCAN
 
-Winda tego typu do swojego działania wykorzystuje poniższe maszyny stanu, zaimplementowane w Javie za pomocą wzorca State.
+Winda tego typu do swojego działania wykorzystuje poniższe maszyny stanu, zaimplementowane w Javie za pomocą wzorca State. Cały algorytm możemy podzielić na dwa automaty/maszyny stanu:
+- `Główna maszyna stanu`
+- `Submaszyna stanu` 
 
 ### Główna maszyna stanu
 
@@ -164,7 +167,7 @@ Winda rozpatruje najpierw zgłoszenia w jedna stronę, a następnie zgłoszenia 
 - dotyczą tego samego kierunku, w którym aktualnie dana winda się znajduje
 - są najbliżej aktualnej windy*
 
-W początkowym stanie winda jest w stanie `IDLE`. W momencie otrzymania zgłoszenia, winda rozpoczyna swój cykl od zgłoszeń w górę (`UP`).
+Początkowo winda jest w stanie `IDLE`. W momencie otrzymania zgłoszenia, winda rozpoczyna swój cykl od zgłoszeń w górę (`UP`).
 
 *Winda jako pierwsze zgłoszenie zawsze rozpatruje zgłoszenie z najniższego piętra (dla stanu `UP`) lub zgłoszenie z najwyższego piętra (dla stanu `DOWN`). Jeśli pierwsze rozpatrywane piętro z danego kierunku znajduje się niżej niż winda (dla stanu `UP`) bądź wyżej (dla stanu `DOWN`), winda dodaje nowe rządanie w przeciwnym kierunku i zmienia stan na przeciwny
 
@@ -172,9 +175,9 @@ Do przechowywania zgłoszeń w góre (`upwardRequests`) oraz w dół (`downwardR
 
 # ElevatorFactory
 
-Klasa implementująca wzorzec Factory Method, słuząca do generowania odpowiedniej liczby wind odpowiedniego typu. Klasa ta może generować windy różnych typów - wszystko zależy od logiki danej subklasy.
+Klasa implementująca wzorzec Factory Method, słuząca do generowania odpowiedniej liczby wind konkretnego typu. Klasa ta może generować windy różnych rodzajów - wszystko zależy od logiki danej subklasy.
 
-Obecnie znajdują sie dwie fabryki:
+Obecnie są zaimplementowane dwie fabryki:
 - `SCANElevatorFactory` - fabryka generująca tylko windy typu `SCANElevator` (domyślna fabryka)
 - `FCFSElevatorFactory` - fabryka generująca tylko windy typu `FCFSElevator`
 
@@ -198,19 +201,19 @@ Klasa zarządzająca systemem wind. W konstruktorze otrzymuje strategię obsług
 
 # ElevatorSimulation
 
-Klasa odpowiedzialna za symulację windy w czasie rzeczywistym. Do jej działąnia potrzebne jest dostarczenie konfiguracji, która w projekcie zdefiniowana jest za pomocą `ElevatorSimulationConfig`.
+Klasa odpowiedzialna za symulację windy w czasie rzeczywistym. Do jej działania potrzebne jest dostarczenie konfiguracji za pomocą rekordu `ElevatorSimulationConfig`.
 
 # SimulationManager 
 
-Singleton, zarządzający wszystkimi symulacjami na serwerze. Jest on przystosowany do pracy z wieloma rdzeniami. To do  niego są kierowane zapytania wewnątrz kontrolerów HTTP.
+Singleton, zarządzający wszystkimi symulacjami na serwerze. Jest on przystosowany do pracy na wielu wątkach. To do niego są kierowane zapytania wewnątrz kontrolerów HTTP.
 
 # FAQ
 
 1. Jak zachowa się winda, jeśli jedzie nią wiele osób i każdy z nich ma różne piętro docelowe?
 
-Zachowanie windy zależy od jej typu. Szczegółowo zostało to opisane przy okazji opisu każdego z nich, lecz w skrócie:
+Zachowanie windy zależy od jej typu. Szczegółowo zostało to opisane przy okazji opisu każdego z nich, TL;DR:
 - `FCFS` - będzie rozpatrywał zgłoszenia zgodnie z kolejnością ich wprowadzenia
-- `SCAN` - będzie rozpatrywał w pierwszej kolejności zgłoszenia zgodne z kierunkiem, będące po drodze. Gdy dojdzie do końca kierunku, zacznie rozpatrywać wszystkie zgłoszenia w drógą stronę. Następnie znów zmieni kierunek podróży i będzie rozpatrywał zgłoszenia z pierwotnego kierunku, zapętlając tym samym cykl.
+- `SCAN` - będzie rozpatrywał w pierwszej kolejności zgłoszenia będące "po drodze" zgodne z aktualnym kierunkiem ruchu windy. Po dojściu do końca, rozpoczyna się rozpatrywawnie wszystkich otrzynanych w przeciwną stronę zgłoszeń. Następnie znów zmieni kierunek i rozpatrzy wszystkie (pozostałe oraz otrzymane w międzyczasie) zgłoszenia w pierwotnym kierunku, zapętlając tym samym cykl.
 
 2. Kiedy i jak dokonujemy wyboru piętra?
 
