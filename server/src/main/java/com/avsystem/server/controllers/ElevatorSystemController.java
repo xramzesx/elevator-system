@@ -20,6 +20,16 @@ public class ElevatorSystemController {
     public ResponseEntity<Map<String, String>> createSimulation(
         @RequestBody ElevatorSimulationConfig config
     ){
+
+        if (config.elevatorCount() <= 0 || config.elevatorCount() > 16)
+            return ResponseEntity.badRequest().build();
+
+        if (config.highestFloor() < config.lowestFloor())
+            return ResponseEntity.badRequest().build();
+
+        if (config.delay() < 1000)
+            return ResponseEntity.badRequest().build();
+
         String simulationId = SimulationManager.getInstance().create(config);
 
         Map<String, String> response = new HashMap<>();
