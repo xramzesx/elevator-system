@@ -1,5 +1,9 @@
 # Elevator System
 
+
+https://github.com/xramzesx/elevator-system/assets/46059547/c6c3e6a1-8772-48ef-b1da-d980b6c03a06
+
+
 System symulujący pracę do 16 wind równocześnie, wykorzystujących jeden wspólny panel.
 
 # Wykorzystane technologie:
