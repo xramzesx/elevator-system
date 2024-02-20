@@ -1,7 +1,7 @@
-package com.avsystem.simulation.systems;
+package com.elevator.system.simulation.systems;
 
-import com.avsystem.simulation.factories.SCANElevatorFactory;
-import com.avsystem.simulation.pickups.bestcost.BestCostPickupStrategy;
+import com.elevator.system.simulation.factories.SCANElevatorFactory;
+import com.elevator.system.simulation.pickups.bestcost.BestCostPickupStrategy;
 
 public class SCANElevatorSystem extends ElevatorSystem {
     public SCANElevatorSystem(Integer elevatorCount) {

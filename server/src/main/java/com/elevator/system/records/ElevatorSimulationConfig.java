@@ -1,8 +1,8 @@
-package com.avsystem.records;
+package com.elevator.system.records;
 
-import com.avsystem.enums.ElevatorFactoryVariant;
-import com.avsystem.enums.ElevatorPickupStrategyVariant;
-import com.avsystem.enums.ElevatorSystemVariant;
+import com.elevator.system.enums.ElevatorFactoryVariant;
+import com.elevator.system.enums.ElevatorPickupStrategyVariant;
+import com.elevator.system.enums.ElevatorSystemVariant;
 
 public record ElevatorSimulationConfig(
     ElevatorSystemVariant systemVariant,

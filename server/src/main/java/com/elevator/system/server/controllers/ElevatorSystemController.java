@@ -1,10 +1,10 @@
-package com.avsystem.server.controllers;
+package com.elevator.system.server.controllers;
 
-import com.avsystem.records.ElevatorRequest;
-import com.avsystem.records.ElevatorSimulationConfig;
-import com.avsystem.records.ElevatorStatus;
-import com.avsystem.simulation.ElevatorSimulation;
-import com.avsystem.simulation.SimulationManager;
+import com.elevator.system.records.ElevatorRequest;
+import com.elevator.system.records.ElevatorSimulationConfig;
+import com.elevator.system.records.ElevatorStatus;
+import com.elevator.system.simulation.ElevatorSimulation;
+import com.elevator.system.simulation.SimulationManager;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
-package com.avsystem.simulation.factories;
+package com.elevator.system.simulation.factories;
 
-import com.avsystem.simulation.elevators.Elevator;
+import com.elevator.system.simulation.elevators.Elevator;
 
 import java.util.List;
 

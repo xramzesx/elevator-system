@@ -1,6 +1,6 @@
-package com.avsystem.records;
+package com.elevator.system.records;
 
-import com.avsystem.enums.ElevatorDirection;
+import com.elevator.system.enums.ElevatorDirection;
 
 import java.util.Objects;
 

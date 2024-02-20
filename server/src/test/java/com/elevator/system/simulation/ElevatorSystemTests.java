@@ -1,9 +1,10 @@
-package com.avsystem.simulation;
+package com.elevator.system.simulation;
 
-import com.avsystem.enums.ElevatorDirection;
-import com.avsystem.records.ElevatorStatus;
-import com.avsystem.simulation.systems.ElevatorSystem;
-import com.avsystem.simulation.systems.SCANElevatorSystem;
+import com.elevator.system.enums.ElevatorDirection;
+import com.elevator.system.records.ElevatorStatus;
+import com.elevator.system.simulation.systems.ElevatorSystem;
+import com.elevator.system.simulation.systems.SCANElevatorSystem;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,8 +23,8 @@ public class ElevatorSystemTests {
         elevatorSystem.step();
 
         /// THEN ///
-        assertEquals(new ElevatorStatus(0,2,2,true),elevatorSystem.status().get(0));
-        assertEquals(new ElevatorStatus(1,-1,-3,false),elevatorSystem.status().get(1));
-        assertEquals(new ElevatorStatus(2,0,0,true),elevatorSystem.status().get(2));
+        Assertions.assertEquals(new ElevatorStatus(0,2,2,true),elevatorSystem.status().get(0));
+        Assertions.assertEquals(new ElevatorStatus(1,-1,-3,false),elevatorSystem.status().get(1));
+        Assertions.assertEquals(new ElevatorStatus(2,0,0,true),elevatorSystem.status().get(2));
     }
 }

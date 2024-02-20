@@ -1,11 +1,11 @@
-package com.avsystem.simulation.systems;
+package com.elevator.system.simulation.systems;
 
-import com.avsystem.enums.ElevatorDirection;
-import com.avsystem.records.ElevatorRequest;
-import com.avsystem.records.ElevatorStatus;
-import com.avsystem.simulation.elevators.Elevator;
-import com.avsystem.simulation.factories.ElevatorFactory;
-import com.avsystem.simulation.pickups.ElevatorPickupStrategy;
+import com.elevator.system.enums.ElevatorDirection;
+import com.elevator.system.records.ElevatorRequest;
+import com.elevator.system.records.ElevatorStatus;
+import com.elevator.system.simulation.elevators.Elevator;
+import com.elevator.system.simulation.factories.ElevatorFactory;
+import com.elevator.system.simulation.pickups.ElevatorPickupStrategy;
 
 import java.util.ArrayList;
 import java.util.List;

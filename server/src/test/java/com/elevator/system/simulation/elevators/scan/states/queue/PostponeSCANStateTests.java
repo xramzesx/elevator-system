@@ -1,8 +1,9 @@
-package com.avsystem.simulation.elevators.scan.states.queue;
+package com.elevator.system.simulation.elevators.scan.states.queue;
 
-import com.avsystem.enums.ElevatorDirection;
-import com.avsystem.interfaces.State;
-import com.avsystem.simulation.elevators.scan.SCANElevator;
+import com.elevator.system.enums.ElevatorDirection;
+import com.elevator.system.interfaces.State;
+import com.elevator.system.simulation.elevators.scan.SCANElevator;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,7 +24,7 @@ public class PostponeSCANStateTests {
 
         /// THEN ///
         assertEquals(1,elevator.getPostponedRequests().size());
-        assertEquals(1,elevator.getCurrentFloor());
+        Assertions.assertEquals(1,elevator.getCurrentFloor());
     }
 
     @Test
@@ -41,7 +42,7 @@ public class PostponeSCANStateTests {
 
         /// THEN ///
         assertEquals(1,elevator.getPostponedRequests().size());
-        assertEquals(-1,elevator.getCurrentFloor());
+        Assertions.assertEquals(-1,elevator.getCurrentFloor());
     }
 
     @Test
@@ -65,7 +66,7 @@ public class PostponeSCANStateTests {
 
         /// THEN ///
         assertEquals(9, elevator.getPostponedRequests().size());
-        assertEquals(10, elevator.getCurrentFloor());
+        Assertions.assertEquals(10, elevator.getCurrentFloor());
 
     }
 }

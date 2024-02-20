@@ -1,8 +1,8 @@
-package com.avsystem.enums;
+package com.elevator.system.enums;
 
-import com.avsystem.simulation.factories.ElevatorFactory;
-import com.avsystem.simulation.factories.FCFSElevatorFactory;
-import com.avsystem.simulation.factories.SCANElevatorFactory;
+import com.elevator.system.simulation.factories.ElevatorFactory;
+import com.elevator.system.simulation.factories.FCFSElevatorFactory;
+import com.elevator.system.simulation.factories.SCANElevatorFactory;
 
 public enum ElevatorFactoryVariant {
     DEFAULT, SCAN, FCFS;

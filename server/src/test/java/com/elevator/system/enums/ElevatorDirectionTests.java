@@ -1,4 +1,4 @@
-package com.avsystem.enums;
+package com.elevator.system.enums;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,8 +1,8 @@
-package com.avsystem.simulation.elevators.scan.states;
+package com.elevator.system.simulation.elevators.scan.states;
 
-import com.avsystem.enums.ElevatorDirection;
-import com.avsystem.interfaces.State;
-import com.avsystem.simulation.elevators.scan.SCANElevator;
+import com.elevator.system.enums.ElevatorDirection;
+import com.elevator.system.interfaces.State;
+import com.elevator.system.simulation.elevators.scan.SCANElevator;
 
 public abstract class SCANState implements State {
     protected final SCANElevator elevator;

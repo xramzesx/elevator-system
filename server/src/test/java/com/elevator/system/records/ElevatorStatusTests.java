@@ -1,4 +1,4 @@
-package com.avsystem.records;
+package com.elevator.system.records;
 
 import org.junit.jupiter.api.Test;
 

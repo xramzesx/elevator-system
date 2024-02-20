@@ -1,4 +1,4 @@
-package com.avsystem.server.configs;
+package com.elevator.system.server.configs;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

@@ -1,6 +1,6 @@
-package com.avsystem.simulation;
+package com.elevator.system.simulation;
 
-import com.avsystem.records.ElevatorSimulationConfig;
+import com.elevator.system.records.ElevatorSimulationConfig;
 
 import java.util.*;
 

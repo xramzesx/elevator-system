@@ -1,10 +1,10 @@
-package com.avsystem.enums;
+package com.elevator.system.enums;
 
-import com.avsystem.simulation.pickups.*;
-import com.avsystem.simulation.pickups.bestcost.BalancedBestCostPickupStrategy;
-import com.avsystem.simulation.pickups.bestcost.BestCostPickupStrategy;
-import com.avsystem.simulation.pickups.bestcost.RandomizedBestCostPickupStrategy;
-import com.avsystem.simulation.pickups.leastbusy.LeastBusyPickupStrategy;
+import com.elevator.system.simulation.pickups.ElevatorPickupStrategy;
+import com.elevator.system.simulation.pickups.bestcost.BalancedBestCostPickupStrategy;
+import com.elevator.system.simulation.pickups.bestcost.BestCostPickupStrategy;
+import com.elevator.system.simulation.pickups.bestcost.RandomizedBestCostPickupStrategy;
+import com.elevator.system.simulation.pickups.leastbusy.LeastBusyPickupStrategy;
 
 public enum ElevatorPickupStrategyVariant {
     DEFAULT,

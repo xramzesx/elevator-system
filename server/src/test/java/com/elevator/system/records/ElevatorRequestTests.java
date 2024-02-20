@@ -1,6 +1,6 @@
-package com.avsystem.records;
+package com.elevator.system.records;
 
-import com.avsystem.enums.ElevatorDirection;
+import com.elevator.system.enums.ElevatorDirection;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

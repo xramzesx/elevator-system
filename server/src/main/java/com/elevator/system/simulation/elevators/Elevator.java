@@ -1,8 +1,8 @@
-package com.avsystem.simulation.elevators;
+package com.elevator.system.simulation.elevators;
 
-import com.avsystem.enums.ElevatorDirection;
-import com.avsystem.records.ElevatorRequest;
-import com.avsystem.records.ElevatorStatus;
+import com.elevator.system.enums.ElevatorDirection;
+import com.elevator.system.records.ElevatorRequest;
+import com.elevator.system.records.ElevatorStatus;
 
 import java.util.Set;
 

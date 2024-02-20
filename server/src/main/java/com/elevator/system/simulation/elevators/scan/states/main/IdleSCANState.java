@@ -1,10 +1,10 @@
-package com.avsystem.simulation.elevators.scan.states.main;
+package com.elevator.system.simulation.elevators.scan.states.main;
 
-import com.avsystem.enums.ElevatorDirection;
-import com.avsystem.interfaces.State;
-import com.avsystem.records.ElevatorRequest;
-import com.avsystem.simulation.elevators.scan.SCANElevator;
-import com.avsystem.simulation.elevators.scan.states.SCANState;
+import com.elevator.system.enums.ElevatorDirection;
+import com.elevator.system.interfaces.State;
+import com.elevator.system.records.ElevatorRequest;
+import com.elevator.system.simulation.elevators.scan.SCANElevator;
+import com.elevator.system.simulation.elevators.scan.states.SCANState;
 
 public class IdleSCANState extends SCANState {
     public IdleSCANState(SCANElevator elevator) {

@@ -1,4 +1,4 @@
-package com.avsystem;
+package com.elevator.system;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;

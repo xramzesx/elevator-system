@@ -1,7 +1,7 @@
-package com.avsystem.simulation.systems;
+package com.elevator.system.simulation.systems;
 
-import com.avsystem.simulation.factories.FCFSElevatorFactory;
-import com.avsystem.simulation.pickups.leastbusy.LeastBusyPickupStrategy;
+import com.elevator.system.simulation.factories.FCFSElevatorFactory;
+import com.elevator.system.simulation.pickups.leastbusy.LeastBusyPickupStrategy;
 
 public class FCFSElevatorSystem extends ElevatorSystem{
     public FCFSElevatorSystem(Integer elevatorCount) {

@@ -1,4 +1,4 @@
-package com.avsystem.interfaces;
+package com.elevator.system.interfaces;
 
 public interface State {
     State enter();

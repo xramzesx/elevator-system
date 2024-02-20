@@ -1,7 +1,7 @@
-package com.avsystem.simulation.factories;
+package com.elevator.system.simulation.factories;
 
-import com.avsystem.simulation.elevators.Elevator;
-import com.avsystem.simulation.elevators.fcfs.FCFSElevator;
+import com.elevator.system.simulation.elevators.Elevator;
+import com.elevator.system.simulation.elevators.fcfs.FCFSElevator;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;

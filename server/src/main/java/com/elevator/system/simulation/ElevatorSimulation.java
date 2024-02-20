@@ -1,12 +1,12 @@
-package com.avsystem.simulation;
+package com.elevator.system.simulation;
 
-import com.avsystem.enums.ElevatorDirection;
-import com.avsystem.records.ElevatorRequest;
-import com.avsystem.records.ElevatorSimulationConfig;
-import com.avsystem.records.ElevatorStatus;
-import com.avsystem.simulation.systems.ElevatorSystem;
-import com.avsystem.simulation.systems.FCFSElevatorSystem;
-import com.avsystem.simulation.systems.SCANElevatorSystem;
+import com.elevator.system.enums.ElevatorDirection;
+import com.elevator.system.records.ElevatorRequest;
+import com.elevator.system.records.ElevatorSimulationConfig;
+import com.elevator.system.records.ElevatorStatus;
+import com.elevator.system.simulation.systems.ElevatorSystem;
+import com.elevator.system.simulation.systems.FCFSElevatorSystem;
+import com.elevator.system.simulation.systems.SCANElevatorSystem;
 
 import java.util.List;
 

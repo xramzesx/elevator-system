@@ -1,9 +1,10 @@
-package com.avsystem.simulation.elevators.fcfs;
+package com.elevator.system.simulation.elevators.fcfs;
 
-import com.avsystem.enums.ElevatorDirection;
-import com.avsystem.records.ElevatorRequest;
-import com.avsystem.records.ElevatorStatus;
-import com.avsystem.simulation.elevators.Elevator;
+import com.elevator.system.enums.ElevatorDirection;
+import com.elevator.system.records.ElevatorRequest;
+import com.elevator.system.records.ElevatorStatus;
+import com.elevator.system.simulation.elevators.Elevator;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class FCFSElevatorTests {
         elevator.step();
 
         /// THEN ///
-        assertEquals(elevator.status(), new ElevatorStatus(0, 3, 4, false));
+        Assertions.assertEquals(elevator.status(), new ElevatorStatus(0, 3, 4, false));
     }
 
     @Test
@@ -49,7 +50,7 @@ public class FCFSElevatorTests {
         elevator.step();
 
         /// THEN ///
-        assertEquals(elevator.status(), new ElevatorStatus(0, -3, -4, false));
+        Assertions.assertEquals(elevator.status(), new ElevatorStatus(0, -3, -4, false));
     }
 
     @Test
@@ -72,7 +73,7 @@ public class FCFSElevatorTests {
         elevator.step();
 
         /// THEN ///
-        assertEquals(elevator.status(), new ElevatorStatus(0, 4, 4, false));
+        Assertions.assertEquals(elevator.status(), new ElevatorStatus(0, 4, 4, false));
     }
 
     @Test

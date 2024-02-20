@@ -1,6 +1,6 @@
-package com.avsystem.enums;
+package com.elevator.system.enums;
 
-import com.avsystem.records.ElevatorStatus;
+import com.elevator.system.records.ElevatorStatus;
 
 public enum ElevatorDirection {
     DOWN(-1), IDLE(0), UP(1);

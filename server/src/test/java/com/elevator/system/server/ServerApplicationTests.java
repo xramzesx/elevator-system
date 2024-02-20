@@ -1,4 +1,4 @@
-package com.avsystem.server;
+package com.elevator.system.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
